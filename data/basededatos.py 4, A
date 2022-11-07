@@ -1,0 +1,15 @@
+import mysql.connector
+
+cnn= mysql.connector.connect(host="localhost",user="root"
+passwd="admi",database="world")
+
+cur=cnn.cusor()
+cur.execute("SELECT * FROM canciones WHERE canciones="AFG"")
+datos=cur.fetchall()
+
+for fila in datos:
+    print(fila)
+
+
+    #print(cnn)
+    

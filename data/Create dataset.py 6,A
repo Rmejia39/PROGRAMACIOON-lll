@@ -1,0 +1,13 @@
+# feature extractoring and preprocessing data
+import librosa
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import os
+import pathlib
+import csv
+import warnings
+import IPython.display as ipd
+import librosa.display
+from tqdm import tqdm_notebook as tqdm
