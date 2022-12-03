@@ -19,7 +19,7 @@ model = load_model()
   
 window.title("MusiFile")
 window.geometry('400x400')
-window.iconbitmap("./clef.ico")
+#window.iconbitmap("./clef.ico")
 window.maxsize(width=400,height=400)
 frame1 = tk.Frame(window, bg='#67B93E')
 
@@ -35,9 +35,9 @@ frame2 = tk.Frame(frame1, bg=bgframe)
 frame2.place(relx=0.017, rely=0.022, relheight=0.95, relwidth=0.96)
 
 #Widgets
-img = ImageTk.PhotoImage(file='UIS-logo2.png')
-imagenUis = tk.Label(frame2, image=img)
-imagenUis.place(x = 53, y = 5)
+#img = ImageTk.PhotoImage(file='UIS-logo2.png')
+#imagenUis = tk.Label(frame2, image=img)
+#imagenUis.place(x = 53, y = 5)
 
 lbl0 = tk.Label(frame1, text="Bienvenido",
                 bg=bgframe,
@@ -45,7 +45,7 @@ lbl0 = tk.Label(frame1, text="Bienvenido",
                 font=("Century Gothic",40))
 lbl0.place(x=58,y=150)
 
-lbl1 = tk.Label(frame1, text="UIS © 2019",
+lbl1 = tk.Label(frame1, text=" 2022",
                 bg=bgframe,
                 fg='Black',
                 font=("Helvetica",8))
@@ -67,7 +67,7 @@ def identificar_genero():
             #Se tiene el path del archivo, ahora se procede a realizar la regresión
             progressbar.step(9.99)  
             #Se empieza por cargar el achivo con librosa
-            y , sr = librosa.load(audiopath, mono=True, duration=30)
+            y , sr = librosa.load(audiopath, mono=True, duration=50)
             progressbar.step(9.99)  
             #se procede a extraer las características
             features = np.zeros(shape=(1,26))
@@ -95,8 +95,8 @@ def identificar_genero():
             features = np.array(features)
             progressbar.step(9.99)  
             #se cargan las medias y desviaciones estándar
-            medias = np.load('../notebooks/medias.npy')
-            desvest = np.load('../notebooks/desvest.npy')
+            medias = np.load('data\medias.npy')
+            desvest = np.load('data\desvest.npy')
             #Se procede a estandarizar las caraceterísticas con respecto a las medias y desviaciones estándar
             progressbar.step(9.99)  
             for idx in range(features.shape[1]):
@@ -137,7 +137,7 @@ btn0 = tk.Button(frame1, text="Identificar Género Canción",
 btn0.place(x=113,y=280)
 
 def click_credits():         
-    tk.messagebox.showinfo("Créditos","Dirigido por: Fabio Martínez Carrillo, Ph.D\n\nHecho por : -Diego Fernando Medina Blanco 2150011\n \t     -Henry Iván Peña Contreras 2150606\n \t     -William Giovanny Palomino 2150782 \n\n          Universidad Industrial de Santander\n\t\t    2019")
+    tk.messagebox.showinfo("Créditos","Rigoberto: , Ph.D\n\nHecho por : -Diego Fernando Medina Blanco 2150011\n \t     -Henry Iván Peña Contreras 2150606\n \t     -William Giovanny Palomino 2150782 \n\n          Universidad Industrial de Santander\n\t\t    2019")
     
     
 btn1 = tk.Button(frame1, text="Créditos",

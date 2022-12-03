@@ -7,12 +7,12 @@ import os
 
 def load_model():
     # load json and create model
-    json_file = open('../notebooks/model.json', 'r')
+    json_file = open('data\model.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
     # load weights into new model
-    loaded_model.load_weights("../notebooks/model.h5")
+    loaded_model.load_weights("data\model.h5")
     print("Loaded model from disk")
     loaded_model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
