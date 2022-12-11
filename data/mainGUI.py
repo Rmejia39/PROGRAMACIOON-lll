@@ -11,13 +11,35 @@ window = tk.Tk()
 
 from loadModel import load_model
 
+#Pantalla principal
+def pantalla_principal():
+    global pantalla
+    pantalla = tk.Tk()
+    pantalla.geometry("300x250")
+    pantalla.title("APP MUSICAL")
+    Label(text="APP MUSICAL", bg="green",width="300",height="2",font=("Verdana",13)).pack()
+
+    Label(text="").pack()
+    Button(text="Iniciar sesion",height="2",width="30",command=login).pack()
+    Label(text="").pack()
+    Button(text="Registro",height="2",width="30",command=Registro).pack()
+    pantalla.mainloop()
+def login():
+    global pantalla2
+    global verificacion_usuario
+    global verificacion_contra
+    global usuario_entrada2 
+    
+
+
+
 #Cargar el modelo
 model = load_model()
 
 
 #Propiedades de la Ventana
   
-window.title("MusiFile")
+window.title("APP MUSICAL")
 window.geometry('400x400')
 #window.iconbitmap("./clef.ico")
 window.maxsize(width=400,height=400)
@@ -137,7 +159,7 @@ btn0 = tk.Button(frame1, text="Identificar Género Canción",
 btn0.place(x=113,y=280)
 
 def click_credits():         
-    tk.messagebox.showinfo("Créditos","Rigoberto: , Ph.D\n\nHecho por : -Diego Fernando Medina Blanco 2150011\n \t     -Henry Iván Peña Contreras 2150606\n \t     -William Giovanny Palomino 2150782 \n\n          Universidad Industrial de Santander\n\t\t    2019")
+    tk.messagebox.showinfo("Créditos","Rigoberto: \n\nPROGRAMACIÓN III\n \t     -RIGOBERTO MEJÍA\n \t     -DANIELA ESPERANZA \n\n          Universidad Gerardo Barrios\n\t\t    2022")
     
     
 btn1 = tk.Button(frame1, text="Créditos",
