@@ -3,10 +3,10 @@ import mysql.connector
 class Registro_datos():
 
     def __init__(self):
-        self.conexion = mysql.connector.connect( host='localhost',
+        self.conexion = mysql.connector.connect( host='127.0.0.1',
                                             database ='app_musical', 
                                             user = 'root',
-                                            password ='Lukavida19')
+                                            password ='')
     def busca_users(self, users):
         cur = self.conexion.cursor()
         sql = "SELECT * FROM login WHERE usuario = {}".format(users)

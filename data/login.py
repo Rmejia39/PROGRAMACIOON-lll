@@ -1,10 +1,16 @@
+from typing import self
 from tkinter import  Tk, Button, Entry, Label, ttk, PhotoImage
 from tkinter import  StringVar,END,HORIZONTAL,Frame,Toplevel
 import time
 import conexion 
+import mainGUI
 
 class Login(Frame):
-	def __init__(self, master, *args):
+	
+	def mainGUI():
+    		return mainGUI
+
+def __init__(self, master, *args):
 		super().__init__( master,*args)
 		self.user_marcar = "Ingrese su correo"
 		self.contra_marcar = "Ingrese su contraseña"
@@ -12,7 +18,7 @@ class Login(Frame):
 		self.fila2 = ''
 		self.datos = conexion.Registro_datos()
 		self.widgets()
-	def entry_out(self, event, event_text):
+def entry_out(self, event, event_text):
 		if event['fg'] == 'black' and len(event.get()) ==0:
 			event.delete(0, END)
 			event['fg'] = 'grey'
@@ -21,22 +27,22 @@ class Login(Frame):
 			self.entry2['show'] =""
 		if self.entry2.get() != 'Ingrese su correo':
 			self.entry2['show'] ="*"
-	def entry_in(self, event):		
+def entry_in(self, event):		
 	    if event['fg'] == 'grey':
 	        event['fg'] = 'black'
-	        event.delete(0, END)
+	    event.delete(0, END)
            	
-	    if self.entry2.get() != 'Ingrese su contraseña':
-	    	self.entry2['show'] = "*"
+if self.entry2.get() != 'Ingrese su contraseña':
+   self.entry2['show'] = "*"
 
-	    if self.entry2.get() == 'Ingrese su contraseña':
-	    	self.entry2['show'] = ""
+if self.entry2.get() == 'Ingrese su contraseña':
+   self.entry2['show'] = ""
 
-	def salir(self):
+def salir(self):
 		self.master.destroy()
 		self.master.quit()
 
-	def acceder_ventana_dos(self):
+def acceder_ventana_dos(self):
 		for i in  range(101):
 			self.barra['value'] +=1
 			self.master.update()
@@ -53,7 +59,7 @@ class Login(Frame):
 		Label(self.ventana_dos, text='VENTANA DOS', font='Arial 40', bg= 'white').pack(expand=True)
 		Button(self.ventana_dos, text='Salir', font='Arial 10', bg= 'red', command= self.salir).pack(expand=True)
 
-	def verificacion_users(self):
+def verificacion_users(self):
 		self.indica1['text'] = ''
 		self.indica2['text'] = ''		
 		users_entry = self.entry1.get()
@@ -86,12 +92,12 @@ class Login(Frame):
 						dato2 = dato2[0][2]
 
 					if dato1 != [] and dato2 != []:
-						self.acceder_ventana_dos()
+						self.mainGUI.app()
 			else:
 				self.indica1['text'] = 'Usuario incorrecto'
 				self.indica2['text'] = 'Contraseña incorrecta'
 
-	def widgets(self):
+def widgets(self):
 		self.logo = PhotoImage(file ='logo.png')
 		Label(self.master, image= self.logo, bg='DarkOrchid1',height=150, width=150).pack()
 		Label(self.master, text= 'Usuario', bg='DarkOrchid1', fg= 'black', font= ('Lucida Sans', 16, 'bold')).pack(pady=5)
